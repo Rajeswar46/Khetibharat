@@ -37,7 +37,7 @@ export function WhoWeAre() {
               "
             >
               <img
-                src="circle.png"
+                src="/images/circle.png"
                 alt="Farmers using technology"
                 className="w-full h-full object-cover parallax-image"
                 loading="lazy"

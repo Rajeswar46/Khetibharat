@@ -142,7 +142,7 @@ export function OurProcess() {
           {/* RIGHT – Illustration Image */}
           <div className="flex justify-center">
             <img
-              src="/Frame.png"
+              src="/images/Frame.png"
               alt="KhetiBharat Marketplace Ecosystem"
               className="w-full max-w-xl object-contain"
             />

@@ -13,7 +13,7 @@ export function HeroSection() {
         transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
       >
         <img
-          src="pre.jpeg"
+          src="/images/pre.jpeg"
           alt="Farmers with bullocks in green fields"
           className="
             w-full h-full

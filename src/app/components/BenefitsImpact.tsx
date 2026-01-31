@@ -163,7 +163,7 @@ export function BenefitsImpact() {
                 transition={{ delay: 0.3, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
               >
                 <img
-                  src="/farmer-illustration.jpg"
+                  src="/images/farmer-illustration.jpg"
                   alt="Benefits illustration"
                   className="w-52 sm:w-64 lg:w-[320px] h-auto object-contain"
                   loading="lazy"
