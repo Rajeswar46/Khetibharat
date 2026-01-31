@@ -10,25 +10,25 @@ export function OurMission() {
       title: "Farmers Face Crisis",
       desc:
         "Fragile incomes, crop risk, mounting debt, and price uncertainty threaten farmer livelihoods across India.",
-      icon: "1.2.png",
+      icon: "/images/a.png",
     },
     {
       title: "Food Safety Concerns",
       desc:
         "Families worry about chemicals, adulteration, and rising food prices with no clear source visibility.",
-      icon: "1.3.png",
+      icon: "/images/b.png",
     },
     {
       title: "Broken Supply Chains",
       desc:
         "Multiple middlemen, hidden margins, and complex chains prevent fair pricing and transparency.",
-      icon: "1.4.png",
+      icon: "/images/c.png",
     },
     {
       title: "Startups Struggle",
       desc:
         "Agri startups find it hard to move beyond pilots into real adoption at village level.",
-      icon: "1.5.png",
+      icon: "/images/d.png",
     },
   ];
 

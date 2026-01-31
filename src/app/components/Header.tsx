@@ -24,7 +24,7 @@ export function Header() {
           {/* LOGO */}
           <div className="flex items-center">
             <Link to="/"><img
-              src="/Logo.jpg.png"
+              src="/images/Logo.jpg.png"
               alt="KhetiBharat Logo"
               className="h-14 sm:h-16 w-auto object-contain"
             /></Link>
