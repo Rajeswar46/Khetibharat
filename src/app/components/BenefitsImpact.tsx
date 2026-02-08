@@ -65,13 +65,13 @@ export function BenefitsImpact() {
             className="text-white text-sm font-medium mb-1"
             variants={fadeUp}
           >
-            <h2>Impact & Value</h2>
+            <h2></h2>
           </motion.p>
           <motion.h2
             className="text-3xl sm:text-4xl font-bold text-white"
             variants={fadeUp}
           >
-            Benefits & Impact
+            Benefits
           </motion.h2>
         </motion.div>
 

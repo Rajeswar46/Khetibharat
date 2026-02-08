@@ -35,27 +35,27 @@ export function ContactPage() {
         {
             icon: <Mail className="w-6 h-6" />,
             label: "Email",
-            value: "support@khetibharat.org",
+            value: "mail.cyano@gmail.com",
             link: "mailto:support@khetibharat.org"
         },
         {
             icon: <Phone className="w-6 h-6" />,
             label: "Phone",
-            value: "+91-11-4567-8900",
+            value: "+91 99591 21199",
             link: "tel:+911145678900"
         },
         {
             icon: <MapPin className="w-6 h-6" />,
             label: "Head Office",
-            value: "Krishi Bhavan, New Delhi - 110001, India",
+            value: " KrishnaGiriEnclave,Tarnaka, Hyderabad-500017,Telangana.",
             link: "#"
         },
-        {
-            icon: <Clock className="w-6 h-6" />,
-            label: "Working Hours",
-            value: "Monday - Saturday: 9:00 AM - 6:00 PM",
-            link: "#"
-        }
+        // {
+        //     icon: <Clock className="w-6 h-6" />,
+        //     label: "Working Hours",
+        //     value: "Monday - Saturday: 9:00 AM - 6:00 PM",
+        //     link: "#"
+        // }
     ];
 
     return (
@@ -64,7 +64,7 @@ export function ContactPage() {
 
             {/* Page Hero */}
             <PageHero
-                title="Contact & Support"
+                title="Contact Us"
                 subtitle="We're here to help. Reach out for any inquiries or support."
                 breadcrumb={[
                     { label: 'Home', href: '/' },

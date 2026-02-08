@@ -7,48 +7,48 @@ import { fadeUp, staggerContainer } from '@/app/utils/animations';
 const processItems = [
   {
     id: 1,
-    title: "PGS-India Certified Farm Produce Products",
+    title: "CYANO BREW — Energy & Community Footfall Zone",
     desc:
       "Certified natural farm produce ensuring transparency, trust, and better income for farmers through verified PGS-India standards.",
   },
   {
     id: 2,
-    title: "Cyano Veda – Health & Wellness Products",
+    title: "CYANOVEDA — Certified Farm Produce Products Store",
     desc: "Natural health and wellness products sourced directly from farmer ecosystems.",
   },
   {
     id: 3,
-    title: "Crennis Booster – Natural & Bio Agriculture Inputs",
+    title: "CRENNIS — Natural & Bio Agri Inputs Zone",
     desc: "Eco-friendly agricultural inputs improving soil health and crop yield.",
   },
   {
     id: 4,
-    title: "Coffee Shop – Community Footfall Hub",
+    title: "KHETI ZONE — Farm Services + Farmer Support Desk",
     desc: "A rural-urban connection space encouraging community engagement.",
   },
   {
     id: 5,
-    title: "Processing Units – Cleaning, Grading & Value Addition",
+    title: "KHETIBHARAT MARKET — Certified Daily Vegetables / Fruits",
     desc: "Infrastructure for quality improvement and better market value.",
   },
   {
     id: 6,
-    title: "Farmer Support & Service Points",
-    desc: "On-ground guidance, training, and digital support for farmers.",
+    title: "PGS INDIA / NMNF ZONE — Certification + Training + Awareness",
+    desc: "Marketplace (Offline & Online Stores with geo tagging)",
   },
   {
     id: 7,
-    title: "Farmers’ Daily Market Stalls (Vegetables & Fruits)",
+    title: "REST ’N’ FRESH — Comfort & Hygiene Experience Zone",
     desc: "Direct-to-consumer fresh produce markets.",
   },
   {
     id: 8,
-    title: "Agri Waste to Manure Plant",
-    desc: "Circular farming through organic waste recycling.",
+    title: "Value Add & Processing Zone Services — Farm Produce",
+    desc: "(Grading, Cleaning, Sorting, Packing, Branding, & Dispatch support.)",
   },
   {
     id: 9,
-    title: "Investment Services",
+    title: "Agri & Horticuture Waste to Organic Manure Production Unit",
     desc: "Agri-linked investment opportunities with transparency.",
   },
   {
@@ -77,7 +77,7 @@ export function OurProcess() {
             className="text-sm font-medium text-gray-700 mb-2"
             variants={fadeUp}
           >
-            Market Place
+            <h2> Market Place</h2>
           </motion.p>
           <motion.h2
             className="text-3xl sm:text-4xl font-bold text-[#fd4d02]"
@@ -106,6 +106,7 @@ export function OurProcess() {
                     transition-all
                     duration-300
                     p-2
+                    pl-6
                     ${isActive
                       ? "bg-[#0B6B3A] text-white shadow-lg"
                       : "bg-white text-gray-800 border border-gray-200 hover:bg-gray-50"

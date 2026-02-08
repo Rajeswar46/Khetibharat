@@ -52,7 +52,7 @@ export function HeroSection() {
           className="text-3xl sm:text-[40px] lg:text-[70px] leading-tight font-bold text-[#fd4d02]"
           variants={fadeUp}
         >
-          Clean, Sertified, Transparent.
+          Clean, Certified, Transparent.
         </motion.h2>
 
         {/* Subheading */}
@@ -68,7 +68,10 @@ export function HeroSection() {
           className="flex items-center justify-center gap-3 sm:gap-5"
           variants={fadeUp}
         >
-          <motion.button
+          <motion.a
+            href="#buyproducts"
+            target=""
+            rel="noopener noreferrer"
             className="
               bg-[#fd4d02] text-white
               px-6 py-2.5 sm:px-10 sm:py-3
@@ -82,7 +85,7 @@ export function HeroSection() {
             transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
           >
             Buy Products
-          </motion.button>
+          </motion.a>
 
           <motion.a
             href="https://agrivalah.com/vendor/registration"

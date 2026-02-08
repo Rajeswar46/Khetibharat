@@ -38,15 +38,17 @@ export function Header() {
             <Link to="/initiatives" className="hover:text-[#0B6B3A] transition">
               Our Initiatives
             </Link>
-            <Link to="/news" className="hover:text-[#0B6B3A] transition">
-              News & Media
-            </Link>
             <Link to="/awards" className="hover:text-[#0B6B3A] transition">
-              Awards & Recognition
+              Benefits
             </Link>
             <Link to="/partners" className="hover:text-[#0B6B3A] transition">
               Partners
             </Link>
+            <Link to="/news" className="hover:text-[#0B6B3A] transition">
+              News & Media
+            </Link>
+
+
           </nav>
 
 
@@ -56,9 +58,8 @@ export function Header() {
             {/* Support / Contact */}
             <div className="hidden md:flex items-center gap-2 text-m text-gray-700">
               <Link to="/contact" className="hover:text-[#0B6B3A] transition">
-                Support
               </Link>
-              <span className="text-gray-400">/</span>
+              <span className="text-gray-400"></span>
               <Link to="/contact" className="hover:text-[#0B6B3A] transition">
                 Contact Us
               </Link>

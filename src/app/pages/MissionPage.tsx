@@ -100,7 +100,7 @@ export function MissionPage() {
                 </div>
             </PageSection>
 
-            {/* Impact Goals */}
+            {/* Impact Goals
             <PageSection background="white">
                 <motion.div className="text-center mb-12" variants={fadeUp}>
                     <h2 className="text-3xl sm:text-4xl font-bold text-[#0B6B3A] mb-4">
@@ -129,7 +129,7 @@ export function MissionPage() {
                         </motion.div>
                     ))}
                 </div>
-            </PageSection>
+            </PageSection> */}
 
             {/* Call to Action
             <PageSection background="gradient">
