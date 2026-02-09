@@ -145,7 +145,7 @@ export function NewsPage() {
                 </div>
             </PageSection>
 
-            {/* Media Kit CTA */}
+            {/* Media Kit CTA
             <PageSection background="gradient">
                 <motion.div
                     className="max-w-4xl mx-auto bg-white rounded-3xl shadow-2xl p-8 sm:p-12 text-center"
@@ -181,7 +181,7 @@ export function NewsPage() {
                         </motion.a>
                     </div>
                 </motion.div>
-            </PageSection>
+            </PageSection> */}
             <FinalCTA />
             <Footer />
         </>

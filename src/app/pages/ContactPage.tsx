@@ -16,15 +16,84 @@ export function ContactPage() {
         message: ''
     });
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitError, setSubmitError] = useState<string | null>(null);
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        // Simulate form submission
-        setIsSubmitted(true);
-        setTimeout(() => {
-            setIsSubmitted(false);
+        setIsSubmitting(true);
+        setSubmitError(null);
+
+        try {
+            // Call the serverless API endpoint
+            const response = await fetch('/api/send-email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            // Check if we got a valid response
+            if (!response.ok) {
+                // Handle 404 - API route not found (likely using npm run dev instead of vercel dev)
+                if (response.status === 404) {
+                    throw new Error(
+                        'API endpoint not found. Please use "vercel dev" instead of "npm run dev" to test the contact form locally.'
+                    );
+                }
+
+                // Try to parse error message from JSON response
+                try {
+                    const errorData = await response.json();
+                    throw new Error(errorData.message || 'Failed to send message');
+                } catch (jsonError) {
+                    // If JSON parsing fails, throw generic error
+                    throw new Error(`Server error (${response.status}). Please try again later.`);
+                }
+            }
+
+            // Parse successful JSON response
+            let data;
+            try {
+                data = await response.json();
+            } catch (jsonError) {
+                console.error('Failed to parse JSON response:', jsonError);
+                throw new Error('Invalid server response. Please try again.');
+            }
+
+            // Check success flag in response
+            if (!data.success) {
+                throw new Error(data.message || 'Failed to send message');
+            }
+
+            // Success! Show success message and reset form
+            setIsSubmitted(true);
             setFormData({ name: '', email: '', phone: '', reason: '', message: '' });
-        }, 5000);
+
+            // Reset success message after 5 seconds
+            setTimeout(() => {
+                setIsSubmitted(false);
+            }, 5000);
+
+        } catch (error) {
+            console.error('Error submitting form:', error);
+
+            // Handle different error types
+            if (error instanceof TypeError && error.message === 'Failed to fetch') {
+                setSubmitError(
+                    'Network error. Please check your connection and try again.'
+                );
+            } else {
+                setSubmitError(
+                    error instanceof Error
+                        ? error.message
+                        : 'Failed to send message. Please try again or contact us directly.'
+                );
+            }
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -47,7 +116,7 @@ export function ContactPage() {
         {
             icon: <MapPin className="w-6 h-6" />,
             label: "Head Office",
-            value: " KrishnaGiriEnclave,Tarnaka, Hyderabad-500017,Telangana.",
+            value: " 203, KrishnaGiriEnclave, Tarnaka, Hyderabad-500017,Telangana.",
             link: "#"
         },
         // {
@@ -157,6 +226,17 @@ export function ContactPage() {
 
                             {!isSubmitted ? (
                                 <form onSubmit={handleSubmit} className="space-y-6">
+                                    {/* Error Message */}
+                                    {submitError && (
+                                        <motion.div
+                                            className="p-4 bg-red-50 border border-red-200 rounded-lg"
+                                            initial={{ opacity: 0, y: -10 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                        >
+                                            <p className="text-red-700 text-sm font-medium">{submitError}</p>
+                                        </motion.div>
+                                    )}
+
                                     {/* Name */}
                                     <div>
                                         <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
@@ -167,9 +247,10 @@ export function ContactPage() {
                                             id="name"
                                             name="name"
                                             required
+                                            disabled={isSubmitting}
                                             value={formData.name}
                                             onChange={handleChange}
-                                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0B6B3A] focus:border-transparent outline-none transition"
+                                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0B6B3A] focus:border-transparent outline-none transition disabled:opacity-50 disabled:cursor-not-allowed"
                                             placeholder="Enter your full name"
                                         />
                                     </div>
@@ -184,9 +265,10 @@ export function ContactPage() {
                                             id="email"
                                             name="email"
                                             required
+                                            disabled={isSubmitting}
                                             value={formData.email}
                                             onChange={handleChange}
-                                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0B6B3A] focus:border-transparent outline-none transition"
+                                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0B6B3A] focus:border-transparent outline-none transition disabled:opacity-50 disabled:cursor-not-allowed"
                                             placeholder="your.email@example.com"
                                         />
                                     </div>
@@ -200,9 +282,10 @@ export function ContactPage() {
                                             type="tel"
                                             id="phone"
                                             name="phone"
+                                            disabled={isSubmitting}
                                             value={formData.phone}
                                             onChange={handleChange}
-                                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0B6B3A] focus:border-transparent outline-none transition"
+                                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0B6B3A] focus:border-transparent outline-none transition disabled:opacity-50 disabled:cursor-not-allowed"
                                             placeholder="+91 98765 43210"
                                         />
                                     </div>
@@ -216,9 +299,10 @@ export function ContactPage() {
                                             id="reason"
                                             name="reason"
                                             required
+                                            disabled={isSubmitting}
                                             value={formData.reason}
                                             onChange={handleChange}
-                                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0B6B3A] focus:border-transparent outline-none transition bg-white"
+                                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0B6B3A] focus:border-transparent outline-none transition bg-white disabled:opacity-50 disabled:cursor-not-allowed"
                                         >
                                             <option value="">Select a reason</option>
                                             <option value="farmer">Farmer Registration & Support</option>
@@ -240,9 +324,10 @@ export function ContactPage() {
                                             name="message"
                                             required
                                             rows={5}
+                                            disabled={isSubmitting}
                                             value={formData.message}
                                             onChange={handleChange}
-                                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0B6B3A] focus:border-transparent outline-none transition resize-none"
+                                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0B6B3A] focus:border-transparent outline-none transition resize-none disabled:opacity-50 disabled:cursor-not-allowed"
                                             placeholder="Tell us how we can help you..."
                                         />
                                     </div>
@@ -250,13 +335,14 @@ export function ContactPage() {
                                     {/* Submit Button */}
                                     <motion.button
                                         type="submit"
-                                        className="w-full bg-[#FF6A00] text-white px-8 py-4 rounded-full font-semibold text-lg flex items-center justify-center gap-2 btn-premium relative overflow-hidden"
-                                        whileHover={{ scale: 1.02, y: -2 }}
-                                        whileTap={{ scale: 0.98 }}
+                                        disabled={isSubmitting}
+                                        className="w-full bg-[#FF6A00] text-white px-8 py-4 rounded-full font-semibold text-lg flex items-center justify-center gap-2 btn-premium relative overflow-hidden disabled:opacity-60 disabled:cursor-not-allowed"
+                                        whileHover={!isSubmitting ? { scale: 1.02, y: -2 } : {}}
+                                        whileTap={!isSubmitting ? { scale: 0.98 } : {}}
                                         transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
                                     >
-                                        <Send className="w-5 h-5" />
-                                        Send Message
+                                        <Send className={`w-5 h-5 ${isSubmitting ? 'animate-pulse' : ''}`} />
+                                        {isSubmitting ? 'Sending...' : 'Send Message'}
                                     </motion.button>
                                 </form>
                             ) : (

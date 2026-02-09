@@ -51,11 +51,11 @@ const processItems = [
     title: "Agri & Horticuture Waste to Organic Manure Production Unit",
     desc: "Agri-linked investment opportunities with transparency.",
   },
-  {
-    id: 10,
-    title: "Rest Lounge with Clean Toilets",
-    desc: "Basic infrastructure improving dignity and comfort.",
-  },
+  // {
+  //   id: 10,
+  //   title: "Rest Lounge with Clean Toilets",
+  //   desc: "Basic infrastructure improving dignity and comfort.",
+  // },
 ];
 
 export function OurProcess() {

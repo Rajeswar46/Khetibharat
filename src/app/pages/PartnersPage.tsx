@@ -68,12 +68,12 @@ export function PartnersPage() {
             </PageSection>
 
             {/* Government Partners */}
-            <PageSection background="gradient">
+            <PageSection background="white">
                 <motion.div className="text-center mb-12" variants={fadeUp}>
                     <div className="flex items-center justify-center gap-3 mb-4">
                         <Building2 className="w-8 h-8 text-[#0B6B3A]" />
                         <h2 className="text-3xl sm:text-4xl font-bold text-[#0B6B3A]">
-                            Government Partners
+                            Partners
                         </h2>
                     </div>
                     <p className="text-lg text-gray-700 max-w-3xl mx-auto">
@@ -104,7 +104,7 @@ export function PartnersPage() {
                 </motion.div>
             </PageSection>
 
-            {/* NGO Partners */}
+            {/* NGO Partners
             <PageSection background="white">
                 <motion.div className="text-center mb-12" variants={fadeUp}>
                     <div className="flex items-center justify-center gap-3 mb-4">
@@ -139,9 +139,9 @@ export function PartnersPage() {
                         ))}
                     </div>
                 </motion.div>
-            </PageSection>
+            </PageSection> */}
 
-            {/* Corporate Partners */}
+            {/* Corporate Partners
             <PageSection background="light">
                 <motion.div className="text-center mb-12" variants={fadeUp}>
                     <div className="flex items-center justify-center gap-3 mb-4">
@@ -176,9 +176,9 @@ export function PartnersPage() {
                         ))}
                     </div>
                 </motion.div>
-            </PageSection>
+            </PageSection> */}
 
-            {/* Become a Partner CTA */}
+            {/* Become a Partner CTA
             <PageSection background="white">
                 <motion.div
                     className="max-w-4xl mx-auto bg-gradient-to-br from-[#0B6B3A] to-[#095730] rounded-3xl shadow-2xl p-8 sm:p-12 text-white text-center"
@@ -216,7 +216,7 @@ export function PartnersPage() {
                         </motion.a>
                     </div>
                 </motion.div>
-            </PageSection>
+            </PageSection> */}
             <FinalCTA />
             <Footer />
         </>

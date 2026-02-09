@@ -1,19 +1,26 @@
 import { useState } from "react";
 import { UserPlus, Menu, X } from "lucide-react";
-import { motion, AnimatePresence } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { motion, AnimatePresence } from "framer-motion";
+import { NavLink, Link } from "react-router-dom";
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const navItems = [
+    { label: "Our Mission", path: "/mission" },
+    { label: "Our Initiatives", path: "/initiatives" },
+    { label: "Benefits", path: "/awards" },
+    { label: "Partners", path: "/partners" },
+    { label: "News & Media", path: "/news" },
+  ];
 
   return (
     <motion.header
       className="absolute top-0 left-0 w-full z-30 text-gray-900"
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 0.6 }}
     >
-
       {/* Orange top border */}
       <div className="h-[5px] bg-[#fd4d02]" />
 
@@ -22,81 +29,90 @@ export function Header() {
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-4">
 
           {/* LOGO */}
-          <div className="flex items-center">
-            <Link to="/"><img
+          <Link to="/">
+            <img
               src="/images/Logo.jpg.png"
               alt="KhetiBharat Logo"
               className="h-14 sm:h-16 w-auto object-contain"
-            /></Link>
-          </div>
+            />
+          </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-8 text-sm text-gray-800">
-            <Link to="/mission" className="hover:text-[#0B6B3A] transition">
-              Our Mission
-            </Link>
-            <Link to="/initiatives" className="hover:text-[#0B6B3A] transition">
-              Our Initiatives
-            </Link>
-            <Link to="/awards" className="hover:text-[#0B6B3A] transition">
-              Benefits
-            </Link>
-            <Link to="/partners" className="hover:text-[#0B6B3A] transition">
-              Partners
-            </Link>
-            <Link to="/news" className="hover:text-[#0B6B3A] transition">
-              News & Media
-            </Link>
+          <nav className="hidden lg:flex items-center gap-8 text-sm font-medium">
+            {navItems.map((item) => (
+              <NavLink
+                key={item.path}
+                to={item.path}
+                className={({ isActive }) =>
+                  `relative pb-1 transition-colors duration-300
+                   ${isActive ? "text-[#0B6B3A]" : "text-gray-800 hover:text-[#0B6B3A]"}`
+                }
+              >
+                {({ isActive }) => (
+                  <>
+                    {item.label}
 
-
+                    {/* Animated Underline */}
+                    <span
+                      className={`
+                        absolute left-0 -bottom-1 h-[2px] w-full
+                        bg-[#0B6B3A] transform transition-transform duration-300 origin-left
+                        ${isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"}
+                      `}
+                    />
+                  </>
+                )}
+              </NavLink>
+            ))}
           </nav>
 
-
           {/* Right Section */}
-          <div className="flex items-center gap-4 sm:gap-6">
+          <div className="flex items-center gap-6">
 
-            {/* Support / Contact */}
-            <div className="hidden md:flex items-center gap-2 text-m text-gray-700">
-              <Link to="/contact" className="hover:text-[#0B6B3A] transition">
-              </Link>
-              <span className="text-gray-400"></span>
-              <Link to="/contact" className="hover:text-[#0B6B3A] transition">
-                Contact Us
-              </Link>
-            </div>
+            {/* Contact */}
+            <NavLink
+              to="/contact"
+              className={({ isActive }) =>
+                `hidden md:block relative pb-1 transition-colors duration-300
+                ${isActive ? "text-[#0B6B3A]" : "text-gray-800 hover:text-[#0B6B3A]"}`
+              }
+            >
+              {({ isActive }) => (
+                <>
+                  Contact Us
+                  <span
+                    className={`
+                      absolute left-0 -bottom-1 h-[2px] w-full
+                      bg-[#0B6B3A] transform transition-transform duration-300 origin-left
+                      ${isActive ? "scale-x-100" : "scale-x-0"}
+                    `}
+                  />
+                </>
+              )}
+            </NavLink>
 
-            {/* Farmer Registration - merged with top orange bar */}
+            {/* Farmer Registration Button */}
             <motion.a
               href="https://www.agrivalah.in/farmer-login.html"
               target="_blank"
               rel="noopener noreferrer"
-              // className="hidden sm:inline-flex items-center gap-2 bg-[#FF6A00] text-white px-8 py-2.5 rounded-full font-semibold shadow-md -mt-3 btn-premium relative overflow-hidden"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.96 }}
-              transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
-              className="
-                hidden sm:inline-flex items-center gap-2
-                bg-[#fd4d02] text-white
-                px-8 py-2.5 rounded-full font-semibold
-                shadow-md
-                transition-all duration-300
-                -mt-3
-                hover:bg-[#fd4d02]
-                hover:shadow-[0_0_0_4px_rgba(255,106,0,0.25),0_10px_30px_rgba(255,106,0,0.35)]
-                hover:-translate-y-[1px]
-              "
+              className="hidden sm:inline-flex items-center gap-2
+                bg-[#fd4d02] text-white px-8 py-2.5 rounded-full
+                font-semibold shadow-md transition-all duration-300
+                hover:shadow-[0_10px_30px_rgba(255,106,0,0.35)]"
             >
               <UserPlus className="w-4 h-4" />
               Farmer Registration
             </motion.a>
 
-            {/* Mobile Menu Toggle */}
+            {/* Mobile Menu Button */}
             <button
-              className="inline-flex items-center justify-center lg:hidden w-9 h-9 rounded-full bg-white/80 shadow-sm border border-black/5"
+              className="lg:hidden w-9 h-9 flex items-center justify-center rounded-full bg-white shadow-sm"
               onClick={() => setMenuOpen(!menuOpen)}
-              aria-label="Toggle navigation menu"
             >
-              {menuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {menuOpen ? <X /> : <Menu />}
             </button>
           </div>
         </div>
@@ -106,56 +122,33 @@ export function Header() {
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            className="lg:hidden bg-white/95 backdrop-blur-sm border-t border-gray-200"
+            className="lg:hidden bg-white border-t"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="max-w-[1440px] mx-auto px-4 py-4 flex flex-col gap-3 text-sm text-gray-800">
-              {[
-                { label: "Mission", path: "/mission" },
-                { label: "Initiatives", path: "/initiatives" },
-                { label: "News", path: "/news" },
-                { label: "Awards", path: "/awards" },
-                { label: "Partners", path: "/partners" },
-                { label: "Contact Us / Support", path: "/contact" },
-              ].map((item, index) => (
-                <motion.div key={item.label}>
-                  <Link
-                    to={item.path}
-                    onClick={() => setMenuOpen(false)}
-                    className="hover:text-[#0B6B3A] transition block"
-                  >
-                    <motion.span
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{
-                        delay: index * 0.05,
-                        duration: 0.3,
-                        ease: [0.22, 1, 0.36, 1]
-                      }}
-                      className="block"
-                    >
-                      {item.label}
-                    </motion.span>
-                  </Link>
-                </motion.div>
+            <div className="px-4 py-4 flex flex-col gap-4 text-sm">
+              {navItems.map((item) => (
+                <NavLink
+                  key={item.path}
+                  to={item.path}
+                  onClick={() => setMenuOpen(false)}
+                  className={({ isActive }) =>
+                    `transition-colors duration-300
+                     ${isActive ? "text-[#0B6B3A]" : "text-gray-800 hover:text-[#0B6B3A]"}`
+                  }
+                >
+                  {item.label}
+                </NavLink>
               ))}
 
-              <motion.a
-                href="https://www.agrivalah.in/farmer-login.html"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-2 inline-flex items-center justify-center gap-2 bg-[#FF6A00] text-white px-4 py-2 rounded-full font-semibold shadow-md btn-premium relative overflow-hidden"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.25, duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                whileTap={{ scale: 0.96 }}
+              <NavLink
+                to="/contact"
+                onClick={() => setMenuOpen(false)}
+                className="text-gray-800 hover:text-[#0B6B3A]"
               >
-                <UserPlus className="w-4 h-4" />
-                Farmer Registration
-              </motion.a>
+                Contact Us
+              </NavLink>
             </div>
           </motion.div>
         )}
