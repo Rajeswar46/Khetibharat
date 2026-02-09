@@ -94,7 +94,7 @@ export function NewsPage() {
                     { label: 'Home', href: '/' },
                     { label: 'News & Media', href: '/news' }
                 ]}
-                background="light"
+                background="gradient"
             />
 
             {/* News Grid */}

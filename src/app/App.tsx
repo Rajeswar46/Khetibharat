@@ -16,7 +16,7 @@ export default function App() {
           <Route path="/mission" element={<MissionPage />} />
           <Route path="/initiatives" element={<InitiativesPage />} />
           <Route path="/news" element={<NewsPage />} />
-          <Route path="/awards" element={<BenefitsPage />} />
+          <Route path="/benefits" element={<BenefitsPage />} />
           <Route path="/partners" element={<PartnersPage />} />
           <Route path="/contact" element={<ContactPage />} />
         </Routes>

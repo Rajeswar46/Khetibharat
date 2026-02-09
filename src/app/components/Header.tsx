@@ -9,7 +9,7 @@ export function Header() {
   const navItems = [
     { label: "Our Mission", path: "/mission" },
     { label: "Our Initiatives", path: "/initiatives" },
-    { label: "Benefits", path: "/awards" },
+    { label: "Benefits", path: "/benefits" },
     { label: "Partners", path: "/partners" },
     { label: "News & Media", path: "/news" },
   ];

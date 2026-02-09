@@ -116,7 +116,7 @@ export function ContactPage() {
         {
             icon: <MapPin className="w-6 h-6" />,
             label: "Head Office",
-            value: " 203, KrishnaGiriEnclave, Tarnaka, Hyderabad-500017,Telangana.",
+            value: " 204, Krishna Giri Enclave, Tarnaka, Hyderabad-500017,Telangana.",
             link: "#"
         },
         // {

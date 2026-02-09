@@ -145,7 +145,7 @@ export function BenefitsPage() {
                 </motion.div>
             </PageSection>
 
-            {/* Closing Statement */}
+            {/* Closing Statement
             <PageSection background="gradient">
                 <motion.div
                     className="max-w-4xl mx-auto bg-white rounded-3xl shadow-2xl p-8 sm:p-12 text-center"
@@ -170,7 +170,7 @@ export function BenefitsPage() {
                         Join the Movement
                     </motion.a>
                 </motion.div>
-            </PageSection>
+            </PageSection> */}
 
             <FinalCTA />
             <Footer />

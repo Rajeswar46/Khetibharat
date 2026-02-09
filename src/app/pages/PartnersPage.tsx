@@ -47,7 +47,7 @@ export function PartnersPage() {
                     { label: 'Home', href: '/' },
                     { label: 'Partners', href: '/partners' }
                 ]}
-                background="light"
+                background="gradient"
             />
 
             {/* Introduction */}
