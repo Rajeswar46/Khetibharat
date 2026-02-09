@@ -96,12 +96,14 @@ export function Header() {
               href="https://www.agrivalah.in/farmer-login.html"
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.96 }}
+
               className="hidden sm:inline-flex items-center gap-2
                 bg-[#fd4d02] text-white px-8 py-2.5 rounded-full
-                font-semibold shadow-md transition-all duration-300
-                hover:shadow-[0_10px_30px_rgba(255,106,0,0.35)]"
+                font-semibold shadow-md  btn-premium
+              relative overflow-hidden"
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.96 }}
+              transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
             >
               <UserPlus className="w-4 h-4" />
               Farmer Registration
