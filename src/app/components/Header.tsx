@@ -117,7 +117,7 @@ export function Header() {
                 { label: "Mission", path: "/mission" },
                 { label: "Initiatives", path: "/initiatives" },
                 { label: "News", path: "/news" },
-                { label: "Awards", path: "/awards" },
+                { label: "Benefits", path: "/awards" },
                 { label: "Partners", path: "/partners" },
                 { label: "Contact Us", path: "/contact" },
               ].map((item, index) => (
