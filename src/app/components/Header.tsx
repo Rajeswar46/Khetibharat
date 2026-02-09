@@ -119,7 +119,7 @@ export function Header() {
                 { label: "News", path: "/news" },
                 { label: "Awards", path: "/awards" },
                 { label: "Partners", path: "/partners" },
-                { label: "Contact Us / Support", path: "/contact" },
+                { label: "Contact Us", path: "/contact" },
               ].map((item, index) => (
                 <motion.div key={item.label}>
                   <Link
