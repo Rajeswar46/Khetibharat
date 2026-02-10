@@ -76,12 +76,13 @@ export function PartnersPage() {
                 >
                     <div className="w-full">
                         <motion.img
-                            src="/images/Logos.jpeg"
-                            alt="KhetiBharat Partner Logos"
-                            className="w-full h-auto object-contain rounded-2xl"
-                            whileHover={{ scale: 1.02 }}
-                            transition={{ duration: 0.3 }}
-                        />
+  src="/images/Logos.jpeg"
+  alt="KhetiBharat Partner Logos"
+  className="w-full h-auto object-contain rounded-2xl"
+  whileHover={{ scale: 1.02 }}
+  transition={{ duration: 0.3 }}
+/>
+
                     </div>
                 </motion.div>
             </PageSection>
