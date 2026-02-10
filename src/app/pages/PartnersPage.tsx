@@ -76,7 +76,7 @@ export function PartnersPage() {
                 >
                     <div className="w-full">
                         <motion.img
-                            src="/Logos.jpeg"
+                            src="/images/Logos.jpeg"
                             alt="KhetiBharat Partner Logos"
                             className="w-full h-auto object-contain rounded-2xl"
                             whileHover={{ scale: 1.02 }}
