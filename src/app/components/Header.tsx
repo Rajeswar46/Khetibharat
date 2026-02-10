@@ -93,8 +93,8 @@ export function Header() {
 
             {/* Farmer Registration Button */}
             <motion.a
-              href="https://www.agrivalah.in/farmer-login.html"
-              target="_blank"
+              href="#farmer-registration"
+              target="_self"
               rel="noopener noreferrer"
 
               className="hidden sm:inline-flex items-center gap-2

@@ -74,7 +74,7 @@ export function ContactPage() {
             // Reset success message after 5 seconds
             setTimeout(() => {
                 setIsSubmitted(false);
-            }, 5000);
+            }, 10000);
 
         } catch (error) {
             console.error('Error submitting form:', error);

@@ -88,8 +88,8 @@ export function HeroSection() {
           </motion.a>
 
           <motion.a
-            href="https://agrivalah.com/vendor/registration"
-            target="_blank"
+            href="#partner"
+            target="_self"
             rel="noopener noreferrer"
             className="
               bg-[#0B6B3A] text-white
