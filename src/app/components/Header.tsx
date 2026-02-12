@@ -31,7 +31,7 @@ export function Header() {
           {/* LOGO */}
           <Link to="/">
             <img
-              src="/images/Logo.jpg.png"
+              src="/images/Logo.png"
               alt="KhetiBharat Logo"
               className="h-14 sm:h-16 w-auto object-contain"
             />
